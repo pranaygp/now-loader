@@ -1,1 +1,2 @@
-module.exports = () => "hello worlds"
+const cors = require('micro-cors')()
+module.exports = cors(() => "hello world")

@@ -63,8 +63,8 @@ export default function(content){
       .then(({stdout, stderr}) => {
         console.log(stdout, stderr)
         if(stdout) {
-          console.log(`Deployed to ${stdout}...`);
-          callback(null, `module.exports = "https://${stdout}"`)
+          console.log(`Deployed to ${stdout}`);
+          callback(null, `module.exports = "${stdout}"`)
         } else {
           throw Error(stderr)
         }

@@ -12,12 +12,12 @@ class Message extends Component {
   componentDidMount(){
     fetch(backend)
       .then(r => r.text())
-      .then(r => this.setState({message: r}))
-      .catch(err => this.setState({message: err}))
+      .then(r => this.setState({message: r + " - Server"}))
+      .catch(err => this.setState({message: "Error: " + err.toString()}))
   }
 
   render() {
-    return <p>{this.state.message || "Loding message from server"}</p>
+    return <p>{this.state.message || "Loading message from server"}</p>
   }
 }
 

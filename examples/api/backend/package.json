@@ -7,6 +7,7 @@
     "start": "micro ."
   },
   "dependencies": {
-    "micro": "^9.1.0"
+    "micro": "^9.1.0",
+    "micro-cors": "^0.1.0"
   }
 }
