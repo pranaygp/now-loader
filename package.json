@@ -1,6 +1,6 @@
 {
   "name": "now-loader",
-  "version": "0.0.1-canary.0",
+  "version": "0.0.1",
   "description": "A webpack loader that triggers a now.sh deployment on the required file/dir, and returns to url to the deployment",
   "main": "dist/index.js",
   "author": "Pranay Prakash <pranay.gp@gmail.com>",
