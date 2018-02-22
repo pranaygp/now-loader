@@ -1,5 +1,6 @@
 import crypto from 'crypto';
-import fetch from 'node-fetch';
+import fs from 'fs';
+import path from 'path'
 import { exec as _exec } from 'child_process';
 import { promisify } from 'util';
 
@@ -29,9 +30,6 @@ const schema = {
       "type": "string"
     }
   },
-  required: [
-    "apiKey" // TODO: fetch API Key from fs if not provided as an option
-  ],
   "additionalProperties": false
 }
 
@@ -44,7 +42,10 @@ export default function(content){
   const context = options.context || this.rootContext || (this.options && this.options.context);
   let apiKey = options.apiKey;
   if(!apiKey) {
-    // TODO: fetch API Key from fs if not provided as an option
+    const apiKeyPath = path.join(process.env.HOME, '.now/auth.json');
+    this.addDependency(apiKeyPath);
+    const { credentials } = JSON.parse(fs.readFileSync(apiKeyPath, 'utf8'));
+    apiKey = credentials.find(({provider}) => provider === 'sh').token;
   }
   const name = interpolateName(this, options.name, {
     context,
@@ -72,7 +73,7 @@ export default function(content){
       .catch(err => callback(err))
   } else {
     // We're only dealing with a single static file deployment
-    upload(options.apiKey, {
+    upload(apiKey, {
       name,
       content
     })

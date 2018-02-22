@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-import backend from 'now-loader?apiKey=FM8lHTdjemnAakEmoii6DVPf!../backend/package.json'
+import backend from 'now-loader!../backend/package.json'
 
 class Message extends Component {
   constructor(){
