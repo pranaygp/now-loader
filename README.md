@@ -31,3 +31,19 @@ fetch(APIendpoint + '/foo').then(console.log)
 ```
 
 On your client codebase, you can simply "require" your entire backend codebase (by either requiring the root `package.json`, `now.json` or `Dockerfile` in your backend codebase). When you run `webpack`, it'll deploy the latest version of your backend to [now](http://now.sh), and return the URL to that so you can just use it throughout your client codebase without having to configure (or worse, hardocde the url on) your frontend.
+
+# Install
+
+```bash
+yarn add --dev now-loader
+# npm install --save-dev now-loader
+```
+
+You likely want to use `now-loader` inline, and not in your webpack.config, but you can use the following rule in your config for full deployments :D
+
+```javascript
+   {
+     test: /(now.json|package.json|Dockerfile)/,
+     loader: 'now-loader'
+   }
+```
