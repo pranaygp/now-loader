@@ -1,0 +1,24 @@
+{
+  "name": "now-loader",
+  "version": "0.0.1",
+  "description": "A webpack loader that triggers a now.sh deployment on the required file/dir, and returns to url to the deployment",
+  "main": "dist/index.js",
+  "author": "Pranay Prakash <pranay.gp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist",
+    "dev": "babel src -d dist -w"
+  },
+  "dependencies": {
+    "loader-utils": "^1.1.0",
+    "node-fetch": "^2.0.0",
+    "now-storage": "^1.2.0",
+    "schema-utils": "^0.4.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
